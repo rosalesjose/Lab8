@@ -10,10 +10,10 @@ namespace Cart
     {
         static void Main(string[] args)
         {            
-            Console.WriteLine("Enter number of players");
+            Console.Write("Enter number of players: ");
             int NumberofBatters = int.Parse(Console.ReadLine());
             
-            Console.WriteLine("Enter number of at-bats");
+            Console.Write("Enter number of at-bats: ");
             int NumberOfAtBats = int.Parse(Console.ReadLine());
             Console.Clear();
             
@@ -31,7 +31,7 @@ namespace Cart
                 Console.Clear();
             }
 
-            //Calculate slugging percentage
+            //Calculate batting average
             for (int Row = 0; Row < NumberofBatters; Row++)
             {
                 float Sum = 0;
@@ -42,7 +42,7 @@ namespace Cart
                 Console.WriteLine("Letter grade for player {0} is {1}", Row + 1, CalculateLetterGrade(Sum));
             }
 
-            //Calculate batting average
+            //Calculate slugging percent
             for (int Row = 0; Row < NumberofBatters; Row++)
             {
                 float Sum = 0;
@@ -50,7 +50,8 @@ namespace Cart
                 {
                     Sum = Sum + studentgradesheet[Row, Column];
                 }
-                Console.WriteLine("Letter grade for player {0} is {1}", Row + 1, CalculateLetterGrade(Sum));
+                float SlugPercent = Sum / NumberOfAtBats;
+                Console.WriteLine("Slugging percent for player {0} is {1}", Row + 1, SlugPercent);
             }
         }
 
