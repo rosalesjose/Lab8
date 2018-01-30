@@ -17,8 +17,8 @@ namespace Cart
             int NumberOfAtBats = int.Parse(Console.ReadLine());
             Console.Clear();
             
-            float[,] studentgradesheet = new float[NumberofBatters, NumberOfAtBats];
-            //Enter at-bats result
+            float[,] StatSheet = new float[NumberofBatters, NumberOfAtBats];
+            
             for (int Row = 0; Row < NumberofBatters; Row++)
             {
                 Console.WriteLine("Entering at-bats for player {0}", Row + 1);
@@ -26,29 +26,36 @@ namespace Cart
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
                 {
                     Console.Write("Result for at-bat {0}: ", Column + 1);
-                    studentgradesheet[Row, Column] = float.Parse(Console.ReadLine());
+                    StatSheet[Row, Column] = float.Parse(Console.ReadLine());
                 }
                 Console.Clear();
             }
-
-            //Calculate batting average
+                        
+            //calculate batting average
             for (int Row = 0; Row < NumberofBatters; Row++)
             {
                 float Sum = 0;
+                int Count = 0;
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
-                {
-                    Sum = Sum + studentgradesheet[Row, Column];
+                {                    
+                    if (StatSheet[Row, Column] > 0)
+                    {
+                        Count++;
+                    }
+                    float BatAverage = Count / NumberOfAtBats;
+                    Console.WriteLine("Batting Average is: {0}", BatAverage);
                 }
+
                 Console.WriteLine("Letter grade for player {0} is {1}", Row + 1, CalculateLetterGrade(Sum));
             }
 
-            //Calculate slugging percent
+            //calculate slugging percent
             for (int Row = 0; Row < NumberofBatters; Row++)
             {
                 float Sum = 0;
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
                 {
-                    Sum = Sum + studentgradesheet[Row, Column];
+                    Sum = Sum + StatSheet[Row, Column];
                 }
                 float SlugPercent = Sum / NumberOfAtBats;
                 Console.WriteLine("Slugging percent for player {0} is {1}", Row + 1, SlugPercent);
