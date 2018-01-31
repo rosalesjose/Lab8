@@ -22,58 +22,15 @@ namespace Lab8
 
                 Console.Clear();
 
-                int[,] StatSheet = new int[NumberOfBatters, NumberOfAtBats];                
+                int[,] StatSheet = new int[NumberOfBatters, NumberOfAtBats];
+                
+                PopulateChart(NumberOfBatters, NumberOfAtBats, StatSheet);
 
-                //populate chart
-                for (int Row = 0; Row < NumberOfBatters; Row++)
-                {
-                    Console.WriteLine("Entering at-bats for player {0}", Row + 1);
+                GetBattingAverage(NumberOfBatters, NumberOfAtBats, StatSheet);
 
-                    for (int Column = 0; Column < NumberOfAtBats; Column++)
-                    {
-                        Console.Write("Result for at-bat {0}: ", Column + 1);
+                GetSlugPercent(NumberOfBatters, NumberOfAtBats, StatSheet);
 
-                        StatSheet[Row, Column] = int.Parse(Console.ReadLine());         
-
-                        Regex BatRegex = new Regex(@"^[0-4]+$");
-
-                        while (!BatRegex.IsMatch(StatSheet[Row, Column].ToString()))
-                        {
-                            Console.WriteLine("Enter a number 0-4");
-                            StatSheet[Row, Column] = int.Parse(Console.ReadLine());
-                        }
-                    }
-                    Console.Clear();
-                }
-
-                //calculate batting average
-                for (int Row = 0; Row < NumberOfBatters; Row++)
-                {
-                    float Count = 0;
-                    for (int Column = 0; Column < NumberOfAtBats; Column++)
-                    {
-                        if (StatSheet[Row, Column] > 0)
-                        {
-                            Count = Count + 1;
-                        }
-                    }
-                    float BatAverage = Count / NumberOfAtBats;
-                    Console.WriteLine("Batting Average for player {0} is: {1}", Row + 1, BatAverage.ToString("#.000"));
-                }
-
-                //calculate slugging percent
-                for (int Row = 0; Row < NumberOfBatters; Row++)
-                {
-                    float Sum = 0;
-                    for (int Column = 0; Column < NumberOfAtBats; Column++)
-                    {
-                        Sum = Sum + StatSheet[Row, Column];
-                    }
-                    float SlugPercent = Sum / NumberOfAtBats;
-                    Console.WriteLine("Slugging percent for player {0} is {1}", Row + 1, SlugPercent.ToString("#.000"));
-                }
-
-                Console.WriteLine("\nEnter the 'Y' key to enter another batter. \nOr enter in any other key to quit.");
+                Console.WriteLine("\nEnter the 'Y' key to enter another batter. \nEnter 'N' to quit.");
                 bool MakeDecision = true;
                 while (MakeDecision)
                 {
@@ -84,9 +41,64 @@ namespace Lab8
                     }
                     catch (Exception)
                     {
-                        Console.WriteLine("Enter the 'Y' key if you want to run the program again.\nEnter 'N' if you want to quit");                        
+                        Console.WriteLine("Enter the 'Y' key if you want to run the program again.\nEnter 'N' if you want to quit");
                     }
                 }
+            }
+        }
+
+        private static void GetSlugPercent(int NumberOfBatters, int NumberOfAtBats, int[,] StatSheet)
+        {
+            for (int Row = 0; Row < NumberOfBatters; Row++)
+            {
+                float Sum = 0;
+                for (int Column = 0; Column < NumberOfAtBats; Column++)
+                {
+                    Sum = Sum + StatSheet[Row, Column];
+                }
+                float SlugPercent = Sum / NumberOfAtBats;
+                Console.WriteLine("Slugging percent for player {0} is {1}", Row + 1, SlugPercent.ToString("#.000"));
+            }
+        }
+
+        private static void PopulateChart(int NumberOfBatters, int NumberOfAtBats, int[,] StatSheet)
+        {
+            for (int Row = 0; Row < NumberOfBatters; Row++)
+            {
+                Console.WriteLine("Entering at-bats for player {0}", Row + 1);
+
+                for (int Column = 0; Column < NumberOfAtBats; Column++)
+                {
+                    Console.Write("Result for at-bat {0}: ", Column + 1);
+
+                    StatSheet[Row, Column] = int.Parse(Console.ReadLine());
+
+                    Regex BatRegex = new Regex(@"^[0-4]+$");
+
+                    while (!BatRegex.IsMatch(StatSheet[Row, Column].ToString()))
+                    {
+                        Console.WriteLine("Enter a number 0-4");
+                        StatSheet[Row, Column] = int.Parse(Console.ReadLine());
+                    }
+                }
+                Console.Clear();
+            }
+        }
+
+        private static void GetBattingAverage(int NumberOfBatters, int NumberOfAtBats, int[,] StatSheet)
+        {
+            for (int Row = 0; Row < NumberOfBatters; Row++)
+            {
+                float Count = 0;
+                for (int Column = 0; Column < NumberOfAtBats; Column++)
+                {
+                    if (StatSheet[Row, Column] > 0)
+                    {
+                        Count = Count + 1;
+                    }
+                }
+                float BatAverage = Count / NumberOfAtBats;
+                Console.WriteLine("Batting Average for player {0} is: {1}", Row + 1, BatAverage.ToString("#.000"));
             }
         }
 
