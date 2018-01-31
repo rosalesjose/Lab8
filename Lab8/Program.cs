@@ -58,7 +58,7 @@ namespace Lab8
                         }
                     }
                     float BatAverage = Count / NumberOfAtBats;
-                    Console.WriteLine("Batting Average for player {0} is: {1}", Row + 1, BatAverage);
+                    Console.WriteLine("Batting Average for player {0} is: {1}", Row + 1, BatAverage.ToString("#.000"));
                 }
 
                 //calculate slugging percent
@@ -70,7 +70,7 @@ namespace Lab8
                         Sum = Sum + StatSheet[Row, Column];
                     }
                     float SlugPercent = Sum / NumberOfAtBats;
-                    Console.WriteLine("Slugging percent for player {0} is {1}", Row + 1, SlugPercent);
+                    Console.WriteLine("Slugging percent for player {0} is {1}", Row + 1, SlugPercent.ToString("#.000"));
                 }
 
                 Console.WriteLine("\nEnter the 'Y' key to enter another batter. \nOr enter in any other key to quit.");
