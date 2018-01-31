@@ -9,17 +9,21 @@ namespace Cart
     class Program
     {
         static void Main(string[] args)
-        {            
-            Console.Write("Enter number of players: ");
-            int NumberofBatters = int.Parse(Console.ReadLine());
+        {
+            Console.Title = "Batting Average Calculator";
+
+            int NumberOfBatters = GetNumbers("Enter number of players: ");            
             
-            Console.Write("Enter number of at-bats: ");
-            int NumberOfAtBats = int.Parse(Console.ReadLine());
+            int NumberOfAtBats = GetNumbers("Enter number of at-bats: ");
+            
             Console.Clear();
+
+            //PopulateSheet(NumberofBatters, NumberOfAtBats);
+
+            float[,] StatSheet = new float[NumberOfBatters, NumberOfAtBats];
             
-            float[,] StatSheet = new float[NumberofBatters, NumberOfAtBats];
-            
-            for (int Row = 0; Row < NumberofBatters; Row++)
+            //populate chart
+            for (int Row = 0; Row < NumberOfBatters; Row++)
             {
                 Console.WriteLine("Entering at-bats for player {0}", Row + 1);
 
@@ -32,7 +36,7 @@ namespace Cart
             }
                         
             //calculate batting average
-            for (int Row = 0; Row < NumberofBatters; Row++)
+            for (int Row = 0; Row < NumberOfBatters; Row++)
             {                
                 float Count = 0;
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
@@ -47,7 +51,7 @@ namespace Cart
             }
 
             //calculate slugging percent
-            for (int Row = 0; Row < NumberofBatters; Row++)
+            for (int Row = 0; Row < NumberOfBatters; Row++)
             {
                 float Sum = 0;
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
@@ -58,17 +62,30 @@ namespace Cart
                 Console.WriteLine("Slugging percent for player {0} is {1}", Row + 1, SlugPercent);
             }
         }
-
-        static char CalculateLetterGrade(float Sum)
+        public static int GetNumbers(string UserPrompt)
         {
-            if (Sum >= 90)
-                return 'A';
-            else if (Sum >= 79)
-                return 'B';
-            else if (Sum >= 60)
-                return 'C';
-            else
-                return 'F';
+            Console.WriteLine(UserPrompt);
+            try
+            {
+                int Input = int.Parse(Console.ReadLine());
+                while (Input <= 0)
+                {
+                    Console.Clear();
+                    return GetNumbers(UserPrompt);
+                }
+                return Input;
+            }
+            catch (FormatException)
+            {
+                Console.Clear();
+                return GetNumbers(UserPrompt);
+            }           
         }
+
+        //public static float PopulateSheet(int NumberOfBatters, int NumberOfAtBats)
+        //{
+        //    float[,] StatSheet = new float[NumberOfBatters, NumberOfAtBats];
+            
+        //}
     }
 }
