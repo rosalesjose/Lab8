@@ -15,6 +15,7 @@ namespace TestMethods
         public void GetInput()
         {
             Assert.AreEqual(4, Program.GetNumbers("3"));
+            Assert.AreNotEqual(6, Program.GetNumbers("9"));
         }
     }
 }

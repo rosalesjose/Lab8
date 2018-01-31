@@ -30,16 +30,10 @@ namespace Lab8
 
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
                 {
-                    Console.Write("Result for at-bat {0}: ", Column + 1);                    
+                    Console.Write("Result for at-bat {0}: ", Column + 1);
 
-                    while ((!int.TryParse(Console.ReadLine(), out StatSheet[Row, Column])) && StatSheet[Row, Column] != 0 ||
-                            StatSheet[Row, Column] != 1 || StatSheet[Row, Column] != 2 || StatSheet[Row, Column] != 3 ||
-                            StatSheet[Row, Column] != 4)
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Enter a value 0-4");
-                        Console.WriteLine("Result of at-bat{0}: ", Column + 1);
-                    }
+                    StatSheet[Row, Column] = int.Parse(Console.ReadLine());
+
                 }
                 Console.Clear();
             }
@@ -87,21 +81,4 @@ namespace Lab8
             return Input;
         }
     }
-
-    //public static void PopulateSheet(float [,] array, int NumberOfBatters, int NumberOfAtBats)
-    //{
-    //    for (int Row = 0; Row < NumberOfBatters; Row++)
-    //    {
-    //        Console.WriteLine("Entering at-bats for player {0}", Row + 1);
-
-    //        for (int Column = 0; Column < NumberOfAtBats; Column++)
-    //        {
-    //            Console.Write("Result for at-bat {0}: ", Column + 1);
-    //            StatSheet[Row, Column] = float.Parse(Console.ReadLine());
-    //        }
-    //        Console.Clear();
-    //    }
-
-    //}
 }
-
