@@ -1,0 +1,16 @@
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Lab8Tests.dll
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Lab8Tests.pdb
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Lab8.exe
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Lab8.pdb
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Lab8.exe.config
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\obj\Debug\Lab8Tests.csprojResolveAssemblyReference.cache
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\obj\Debug\Lab8Tests.csproj.CoreCompileInputs.cache
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\obj\Debug\Lab8Tests.dll
+C:\Users\Skeletor\source\repos\Lab8\Lab8Tests\obj\Debug\Lab8Tests.pdb

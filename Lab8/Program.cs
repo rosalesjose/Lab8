@@ -5,12 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-
-namespace Cart
+namespace Lab8
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.Title = "Batting Average Calculator";
 
@@ -31,19 +30,16 @@ namespace Cart
 
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
                 {
-                    Console.Write("Result for at-bat {0}: ", Column + 1);
+                    Console.Write("Result for at-bat {0}: ", Column + 1);                    
 
-                   // StatSheet[Row, Column] = int.Parse(Console.ReadLine());
-
-                    while ((!int.TryParse(Console.ReadLine(), out StatSheet[Row, Column])) && StatSheet[Row, Column] != 0 || 
-                            StatSheet[Row, Column] != 1 || StatSheet[Row, Column] != 2 || StatSheet[Row, Column] != 3 || 
+                    while ((!int.TryParse(Console.ReadLine(), out StatSheet[Row, Column])) && StatSheet[Row, Column] != 0 ||
+                            StatSheet[Row, Column] != 1 || StatSheet[Row, Column] != 2 || StatSheet[Row, Column] != 3 ||
                             StatSheet[Row, Column] != 4)
                     {
                         Console.Clear();
                         Console.WriteLine("Enter a value 0-4");
-                        Console.WriteLine("Result of at-bat{0}: ", Column +1);
+                        Console.WriteLine("Result of at-bat{0}: ", Column + 1);
                     }
-
                 }
                 Console.Clear();
             }
@@ -84,29 +80,28 @@ namespace Cart
             {
                 GetNumbers(UserPrompt);
             }
-            if (Input <=0)
+            if (Input <= 0)
             {
                 GetNumbers(UserPrompt);
             }
-            return Input;            
-            }
+            return Input;
         }
-
-
-        //public static void PopulateSheet(float [,] array, int NumberOfBatters, int NumberOfAtBats)
-        //{
-        //    for (int Row = 0; Row < NumberOfBatters; Row++)
-        //    {
-        //        Console.WriteLine("Entering at-bats for player {0}", Row + 1);
-
-        //        for (int Column = 0; Column < NumberOfAtBats; Column++)
-        //        {
-        //            Console.Write("Result for at-bat {0}: ", Column + 1);
-        //            StatSheet[Row, Column] = float.Parse(Console.ReadLine());
-        //        }
-        //        Console.Clear();
-        //    }
-
-        //}
     }
+
+    //public static void PopulateSheet(float [,] array, int NumberOfBatters, int NumberOfAtBats)
+    //{
+    //    for (int Row = 0; Row < NumberOfBatters; Row++)
+    //    {
+    //        Console.WriteLine("Entering at-bats for player {0}", Row + 1);
+
+    //        for (int Column = 0; Column < NumberOfAtBats; Column++)
+    //        {
+    //            Console.Write("Result for at-bat {0}: ", Column + 1);
+    //            StatSheet[Row, Column] = float.Parse(Console.ReadLine());
+    //        }
+    //        Console.Clear();
+    //    }
+
+    //}
+}
 
