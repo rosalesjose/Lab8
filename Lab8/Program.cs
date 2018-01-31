@@ -33,20 +33,17 @@ namespace Cart
                         
             //calculate batting average
             for (int Row = 0; Row < NumberofBatters; Row++)
-            {
-                float Sum = 0;
-                int Count = 0;
+            {                
+                float Count = 0;
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
                 {                    
                     if (StatSheet[Row, Column] > 0)
                     {
-                        Count++;
-                    }
-                    float BatAverage = Count / NumberOfAtBats;
-                    Console.WriteLine("Batting Average is: {0}", BatAverage);
+                        Count = Count + 1;                        
+                    }                    
                 }
-
-                Console.WriteLine("Letter grade for player {0} is {1}", Row + 1, CalculateLetterGrade(Sum));
+                float BatAverage = Count / NumberOfAtBats;
+                Console.WriteLine("Batting Average for player {0} is: {1}", Row + 1, BatAverage);
             }
 
             //calculate slugging percent
