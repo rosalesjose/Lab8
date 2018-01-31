@@ -25,7 +25,6 @@ namespace Cart
             //PopulateSheet(StatSheet, NumberOfBatters, NumberOfAtBats);
 
             //populate chart
-
             for (int Row = 0; Row < NumberOfBatters; Row++)
             {
                 Console.WriteLine("Entering at-bats for player {0}", Row + 1);
@@ -80,20 +79,16 @@ namespace Cart
         public static int GetNumbers(string UserPrompt)
         {
             Console.WriteLine(UserPrompt);
-            try
+            int Input = 0;
+            while (!int.TryParse(Console.ReadLine(), out Input))
             {
-                int Input = int.Parse(Console.ReadLine());
-                while (Input <= 0)
-                {
-                    Console.Clear();
-                    return GetNumbers(UserPrompt);
-                }
-                return Input;
+                GetNumbers(UserPrompt);
             }
-            catch (FormatException)
+            if (Input <=0)
             {
-                Console.Clear();
-                return GetNumbers(UserPrompt);
+                GetNumbers(UserPrompt);
+            }
+            return Input;            
             }
         }
 
@@ -114,4 +109,4 @@ namespace Cart
 
         //}
     }
-}
+
