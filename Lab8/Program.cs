@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+
 
 namespace Cart
 {
@@ -12,17 +14,18 @@ namespace Cart
         {
             Console.Title = "Batting Average Calculator";
 
-            int NumberOfBatters = GetNumbers("Enter number of players: ");            
-            
+            int NumberOfBatters = GetNumbers("Enter number of players: ");
+
             int NumberOfAtBats = GetNumbers("Enter number of at-bats: ");
-            
+
             Console.Clear();
 
-            //PopulateSheet(NumberofBatters, NumberOfAtBats);
+            int[,] StatSheet = new int[NumberOfBatters, NumberOfAtBats];
 
-            float[,] StatSheet = new float[NumberOfBatters, NumberOfAtBats];
-            
+            //PopulateSheet(StatSheet, NumberOfBatters, NumberOfAtBats);
+
             //populate chart
+
             for (int Row = 0; Row < NumberOfBatters; Row++)
             {
                 Console.WriteLine("Entering at-bats for player {0}", Row + 1);
@@ -30,21 +33,32 @@ namespace Cart
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
                 {
                     Console.Write("Result for at-bat {0}: ", Column + 1);
-                    StatSheet[Row, Column] = float.Parse(Console.ReadLine());
+
+                   // StatSheet[Row, Column] = int.Parse(Console.ReadLine());
+
+                    while ((!int.TryParse(Console.ReadLine(), out StatSheet[Row, Column])) && StatSheet[Row, Column] != 0 || 
+                            StatSheet[Row, Column] != 1 || StatSheet[Row, Column] != 2 || StatSheet[Row, Column] != 3 || 
+                            StatSheet[Row, Column] != 4)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Enter a value 0-4");
+                        Console.WriteLine("Result of at-bat{0}: ", Column +1);
+                    }
+
                 }
                 Console.Clear();
             }
-                        
+
             //calculate batting average
             for (int Row = 0; Row < NumberOfBatters; Row++)
-            {                
+            {
                 float Count = 0;
                 for (int Column = 0; Column < NumberOfAtBats; Column++)
-                {                    
+                {
                     if (StatSheet[Row, Column] > 0)
                     {
-                        Count = Count + 1;                        
-                    }                    
+                        Count = Count + 1;
+                    }
                 }
                 float BatAverage = Count / NumberOfAtBats;
                 Console.WriteLine("Batting Average for player {0} is: {1}", Row + 1, BatAverage);
@@ -62,6 +76,7 @@ namespace Cart
                 Console.WriteLine("Slugging percent for player {0} is {1}", Row + 1, SlugPercent);
             }
         }
+
         public static int GetNumbers(string UserPrompt)
         {
             Console.WriteLine(UserPrompt);
@@ -79,13 +94,24 @@ namespace Cart
             {
                 Console.Clear();
                 return GetNumbers(UserPrompt);
-            }           
+            }
         }
 
-        //public static float PopulateSheet(int NumberOfBatters, int NumberOfAtBats)
+
+        //public static void PopulateSheet(float [,] array, int NumberOfBatters, int NumberOfAtBats)
         //{
-        //    float[,] StatSheet = new float[NumberOfBatters, NumberOfAtBats];
-            
+        //    for (int Row = 0; Row < NumberOfBatters; Row++)
+        //    {
+        //        Console.WriteLine("Entering at-bats for player {0}", Row + 1);
+
+        //        for (int Column = 0; Column < NumberOfAtBats; Column++)
+        //        {
+        //            Console.Write("Result for at-bat {0}: ", Column + 1);
+        //            StatSheet[Row, Column] = float.Parse(Console.ReadLine());
+        //        }
+        //        Console.Clear();
+        //    }
+
         //}
     }
 }

@@ -5,3 +5,5 @@ C:\Users\Skeletor\source\repos\Lab8\Lab8\obj\Debug\Lab8.csproj.CoreCompileInputs
 C:\Users\Skeletor\source\repos\Lab8\Lab8\obj\Debug\Lab8.exe
 C:\Users\Skeletor\source\repos\Lab8\Lab8\obj\Debug\Lab8.pdb
 C:\Users\Skeletor\source\repos\Lab8\Lab8\obj\Debug\Lab8.csprojResolveAssemblyReference.cache
+C:\Users\Skeletor\source\repos\Lab8\Lab8\bin\Debug\nunit.framework.dll
+C:\Users\Skeletor\source\repos\Lab8\Lab8\bin\Debug\nunit.framework.xml
